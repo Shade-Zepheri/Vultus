@@ -1,9 +1,16 @@
+export TARGET = iphone:9.3
+
+INSTALL_TARGET_PROCESSES = Preferences
+
+ifeq ($(RESPRING),1)
+INSTALL_TARGET_PROCESSES += SpringBoard
+endif
+
 include $(THEOS)/makefiles/common.mk
 
-TWEAK_NAME = Vultus
-Vultus_FILES = Tweak.xm
+# the main stuff
+SUBPROJECTS = Vultus SpringBoard
+# side stuff
+SUBPROJECTS += Settings Flipswitch
 
-include $(THEOS_MAKE_PATH)/tweak.mk
-
-after-install::
-	install.exec "killall -9 SpringBoard"
+include $(THEOS_MAKE_PATH)/aggregate.mk

@@ -1,9 +1,10 @@
 Package: com.shade.vultus
 Name: Vultus
-Depends: mobilesubstrate
-Version: 0.0.1
+Depends: firmware (>= 10.0), mobilesubstrate, preferenceloader, ws.hbang.common
+Version: 0.1
 Architecture: iphoneos-arm
-Description: An awesome MobileSubstrate tweak!
-Maintainer: Shade
-Author: Shade
+Description: Unlock with Facial Recognition
+Maintainer: Shade Zepheri <ziroalpha@gmail.com>
+Author: Shade Zepheri <ziroalpha@gmail.com>
 Section: Tweaks
+Depiction: http://shade-zepheri.github.io/depic/index.html?p=com.shade.vultus
