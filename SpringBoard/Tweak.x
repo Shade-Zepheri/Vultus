@@ -1,4 +1,5 @@
 #import "VLTPreferences.h"
+#import "VLTSpringBoardListener.h"
 #import "NSData+AES.h"
 
 static NSString *savedPasscode;
@@ -14,7 +15,7 @@ static NSString *savedPasscode;
     if (passcode) {
         savedPasscode = passcode;
 
-        NSString *udid = (__bridge_transfer NSString *)MGCopyAnswer(CFSTR("UniqueDeviceID"));
+        NSString *udid = (__bridge_transfer NSString *)MGCopyAnswer(kMGUniqueDeviceID);
         NSData *encryptedPasscode = [[savedPasscode dataUsingEncoding:NSUTF8StringEncoding] AES256EncryptedDataWithKey:udid];
         [VLTPreferences sharedSettings].savedPasscodeData = encryptedPasscode;
     }
@@ -38,7 +39,7 @@ static NSString *savedPasscode;
 
 %ctor {
     NSData *encryptedPasscode = [VLTPreferences sharedSettings].savedPasscodeData;
-    NSString *udid = (__bridge_transfer NSString *)MGCopyAnswer(CFSTR("UniqueDeviceID"));
+    NSString *udid = (__bridge_transfer NSString *)MGCopyAnswer(kMGUniqueDeviceID);
 
     NSData *passcodeData = [encryptedPasscode AES256DecryptedDataWithKey:udid];
     savedPasscode = [NSString stringWithUTF8String:[[[NSString alloc] initWithData:passcodeData encoding:NSUTF8StringEncoding] UTF8String]];
