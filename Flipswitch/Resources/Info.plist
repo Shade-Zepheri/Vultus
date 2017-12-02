@@ -7,7 +7,7 @@
 	<key>CFBundleExecutable</key>
 	<string>Vultus</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.shade.vultus</string>
+	<string>com.shade.vultus.flipswitch</string>
 	<key>CFBundleDisplayName</key>
 	<string>Vultus</string>
 	<key>CFBundleInfoDictionaryVersion</key>

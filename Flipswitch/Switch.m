@@ -9,7 +9,7 @@
 
 - (FSSwitchState)stateForSwitchIdentifier:(NSString *)switchIdentifier {
 		Boolean keyExistsAndHasValidFormat;
-		BOOL enabled = CFPreferencesGetAppBooleanValue(CFSTR("Enabled"), CFSTR("com.shade.vultus"), &keyExistsAndHasValidFormat);
+		BOOL enabled = CFPreferencesGetAppBooleanValue(CFSTR("Enabled"), CFSTR("com.shade.vultus.settings"), &keyExistsAndHasValidFormat);
 
 		return enabled ? FSSwitchStateOn : FSSwitchStateOff;
 }
@@ -19,8 +19,8 @@
 				return;
 		}
 
-		CFPreferencesSetAppValue(CFSTR("Enabled"), (CFPropertyListRef)(newState == FSSwitchStateOn ? @YES : @NO), CFSTR("com.shade.vultus"));
-		notify_post("com.shade.vultus/ReloadPrefs");
+		CFPreferencesSetAppValue(CFSTR("Enabled"), (CFPropertyListRef)(newState == FSSwitchStateOn ? @YES : @NO), CFSTR("com.shade.vultus.settings"));
+		notify_post("com.shade.vultus.settings/ReloadPrefs");
 }
 
 @end

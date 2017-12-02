@@ -20,7 +20,7 @@ static NSString *const kVLTPreferencesSavedPasscodeKey = @"PasscodeData";
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _preferences = [HBPreferences preferencesForIdentifier:@"com.shade.vultus"];
+        _preferences = [HBPreferences preferencesForIdentifier:@"com.shade.vultus.settings"];
 
         [_preferences registerBool:&_enabled default:YES forKey:kVLTPreferencesEnabledKey];
     }
