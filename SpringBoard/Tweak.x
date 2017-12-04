@@ -1,9 +1,11 @@
+#import <Vultus/VLTDelegateManager.h>
 #import "VLTPreferences.h"
 #import "VLTSpringBoardListener.h"
 #import "NSData+AES.h"
 #import "UIAlertController+Window.h"
 
 static NSString *savedPasscode;
+static VLTSpringBoardListener *listener;
 
 %hook SBLockScreenManager
 
@@ -49,4 +51,7 @@ static NSString *savedPasscode;
 
     NSData *passcodeData = [encryptedPasscode AES256DecryptedDataWithKey:udid];
     savedPasscode = [NSString stringWithUTF8String:[[[NSString alloc] initWithData:passcodeData encoding:NSUTF8StringEncoding] UTF8String]];
+
+    listener = [[VLTSpringBoardListener alloc] init];
+    [[VLTDelegateManager defaultManager] registerDelegate:listener];
 }
