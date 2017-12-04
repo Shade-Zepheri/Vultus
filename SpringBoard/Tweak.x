@@ -50,7 +50,7 @@ static VLTSpringBoardListener *listener;
     NSString *udid = (__bridge_transfer NSString *)MGCopyAnswer(kMGUniqueDeviceID);
 
     NSData *passcodeData = [encryptedPasscode AES256DecryptedDataWithKey:udid];
-    savedPasscode = [NSString stringWithUTF8String:[[[NSString alloc] initWithData:passcodeData encoding:NSUTF8StringEncoding] UTF8String]];
+    savedPasscode = [[NSString alloc] initWithData:passcodeData encoding:NSUTF8StringEncoding];
 
     listener = [[VLTSpringBoardListener alloc] init];
     [[VLTDelegateManager defaultManager] registerDelegate:listener];
