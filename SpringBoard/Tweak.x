@@ -1,6 +1,7 @@
 #import "VLTPreferences.h"
 #import "VLTSpringBoardListener.h"
 #import "NSData+AES.h"
+#import "UIAlertController+Window.h"
 
 static NSString *savedPasscode;
 
@@ -31,7 +32,12 @@ static NSString *savedPasscode;
     %orig;
 
     if (!savedPasscode) {
-        HBLogWarn(@"No passcode saved. Please unlock with passcode");
+        NSString *message = @"No passcode saved. Vultus requires your passcode in order to unlock the device (Your passcode in encrypted for safety reasons). Please unlock with your passocde"
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Vultus" message:message preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]
+
+        [alert addAction:action];
+        [alert show];
     }
 }
 
