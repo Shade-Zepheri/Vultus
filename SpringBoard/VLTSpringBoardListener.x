@@ -1,9 +1,11 @@
+#import <libMobileGestalt/libMobileGestalt.h>
+#import <SpringBoard/SBLockScreenManager+Private.h>
 #import "VLTSpringBoardListener.h"
 
 @implementation VLTSpringBoardListener
 
 - (void)faceRecognized:(NSString *)recognized confidence:(NSInteger)confidence {
-    //Change unlock text maybe?
+    //Change push to unlock text
 
     NSData *encryptedPasscode = [VLTPreferences sharedSettings].savedPasscodeData;
     NSString *udid = (__bridge_transfer NSString *)MGCopyAnswer(kMGUniqueDeviceID);
@@ -16,7 +18,7 @@
 }
 
 - (void)faceRejected {
-
+    //Change push to unlock text
 }
 
 @end

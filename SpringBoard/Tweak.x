@@ -1,3 +1,4 @@
+#import <libMobileGestalt/libMobileGestalt.h>
 #import <Vultus/VLTDelegateManager.h>
 #import "VLTPreferences.h"
 #import "VLTSpringBoardListener.h"
@@ -51,6 +52,7 @@ static VLTSpringBoardListener *listener;
 
     NSData *passcodeData = [encryptedPasscode AES256DecryptedDataWithKey:udid];
     savedPasscode = [[NSString alloc] initWithData:passcodeData encoding:NSUTF8StringEncoding];
+    //[NSString stringWithUTF8String:passcodeData.bytes];
 
     listener = [[VLTSpringBoardListener alloc] init];
     [[VLTDelegateManager defaultManager] registerDelegate:listener];
