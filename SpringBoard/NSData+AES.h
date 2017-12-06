@@ -6,8 +6,7 @@
 @interface NSData (AES)
 
 - (NSData *)AES256EncryptedDataWithKey:(NSString *)key;
+
 - (NSData *)AES256DecryptedDataWithKey:(NSString *)key;
-- (NSData *)AES256EncryptedDataWithKey:(NSString *)key iv:(NSString *)iv;
-- (NSData *)AES256DecryptedDataWithKey:(NSString *)key iv:(NSString *)iv;
 
 @end
