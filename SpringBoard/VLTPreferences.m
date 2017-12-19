@@ -8,7 +8,7 @@ static NSString *const kVLTPreferencesSavedPasscodeKey = @"PasscodeData";
 	HBPreferences *_preferences;
 }
 
-+ (instancetype)sharedInstance {
++ (instancetype)sharedSettings {
     static VLTPreferences *sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
