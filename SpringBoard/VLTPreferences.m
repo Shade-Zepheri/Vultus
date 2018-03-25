@@ -5,7 +5,7 @@ static NSString *const kVLTPreferencesEnabledKey = @"Enabled";
 static NSString *const kVLTPreferencesSavedPasscodeKey = @"PasscodeData";
 
 @implementation VLTPreferences {
-	HBPreferences *_preferences;
+    HBPreferences *_preferences;
 }
 
 + (instancetype)sharedSettings {
@@ -29,11 +29,11 @@ static NSString *const kVLTPreferencesSavedPasscodeKey = @"PasscodeData";
 }
 
 - (NSData *)savedPasscodeData {
-		return [_preferences objectForKey:kVLTPreferencesSavedPasscodeKey];
+    return [_preferences objectForKey:kVLTPreferencesSavedPasscodeKey];
 }
 
 - (void)setSavedPasscodeData:(NSData *)data {
-		[_preferences setObject:data forKey:kVLTPreferencesSavedPasscodeKey];
+    [_preferences setObject:data forKey:kVLTPreferencesSavedPasscodeKey];
 }
 
 @end

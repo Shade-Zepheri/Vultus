@@ -1,3 +1,4 @@
+#import "VLTAlertItem.h"
 #import "VLTPreferences.h"
 #import "VLTSpringBoardListener.h"
 #import "NSData+AES.h"
@@ -36,11 +37,8 @@ static VLTSpringBoardListener *listener;
 
     if (!savedPasscode) {
         NSString *message = @"No passcode saved. Vultus requires your passcode in order to unlock the device (Your passcode in encrypted for safety reasons). Please unlock with your passocde"
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Vultus" message:message preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]
-
-        [alert addAction:action];
-        [alert show];
+        VLTAlertItem *alertItem = [%c(VLTAlertItem) alertItemWithTitle:@"VLTAlertItem" andMessage:message];
+        [alertItem.class activateAlertItem:alertItem];
     }
 }
 
@@ -52,7 +50,6 @@ static VLTSpringBoardListener *listener;
 
     NSData *passcodeData = [encryptedPasscode AES256DecryptedDataWithKey:udid];
     savedPasscode = [[NSString alloc] initWithData:passcodeData encoding:NSUTF8StringEncoding];
-    //[NSString stringWithUTF8String:passcodeData.bytes];
 
     listener = [[VLTSpringBoardListener alloc] init];
     [[VLTDelegateManager defaultManager] registerDelegate:listener];
