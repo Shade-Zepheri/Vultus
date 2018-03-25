@@ -1,9 +1,9 @@
-#import <libMobileGestalt/libMobileGestalt.h>
-#import <Vultus/VLTDelegateManager.h>
 #import "VLTPreferences.h"
 #import "VLTSpringBoardListener.h"
 #import "NSData+AES.h"
 #import "UIAlertController+Window.h"
+#import <MobileGestalt/MobileGestalt.h>
+#import <Vultus/VLTDelegateManager.h>
 
 static NSString *savedPasscode;
 static VLTSpringBoardListener *listener;

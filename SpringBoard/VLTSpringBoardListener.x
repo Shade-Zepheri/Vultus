@@ -1,4 +1,4 @@
-#import <libMobileGestalt/libMobileGestalt.h>
+#import <MobileGestalt/MobileGestalt.h>
 #import <SpringBoard/SBLockScreenManager+Private.h>
 #import <SpringBoard/SBDashBoardMainPageContentViewController>
 #import <SpringBoard/SBDashBoardMainPageView.h>
