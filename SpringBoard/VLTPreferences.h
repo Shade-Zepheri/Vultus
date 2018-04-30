@@ -1,8 +1,7 @@
-#import <Cephei/HBPreferences.h>
-
 @interface VLTPreferences : NSObject
 
-@property (nonatomic, readonly) BOOL enabled;
+@property (readonly, nonatomic) BOOL enabled;
+@property (strong, nonatomic) NSData *savedPasscodeData;
 
 + (instancetype)sharedSettings;
 

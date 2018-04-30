@@ -7,7 +7,7 @@
 	<key>CFBundleExecutable</key>
 	<string>Vultus</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.shade.vultus.settings</string>
+	<string>com.shade.vultusprefs</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundlePackageType</key>
@@ -18,6 +18,8 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
+	<key>HBPackageIdentifier</key>
+	<string>com.shade.vultus</string>
 	<key>NSPrincipalClass</key>
 	<string>VLTRootListController</string>
 </dict>

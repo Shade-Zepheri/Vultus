@@ -1,5 +1,7 @@
 #import "VLTPreferences.h"
+#import <Cephei/HBPreferences.h>
 
+// Settings keys
 static NSString *const kVLTPreferencesEnabledKey = @"Enabled";
 
 static NSString *const kVLTPreferencesSavedPasscodeKey = @"PasscodeData";
@@ -14,13 +16,14 @@ static NSString *const kVLTPreferencesSavedPasscodeKey = @"PasscodeData";
     dispatch_once(&onceToken, ^{
         sharedInstance = [[self alloc] init];
     });
+
     return sharedInstance;
 }
 
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _preferences = [HBPreferences preferencesForIdentifier:@"com.shade.vultus.settings"];
+        _preferences = [HBPreferences preferencesForIdentifier:@"com.shade.vultus"];
 
         [_preferences registerBool:&_enabled default:YES forKey:kVLTPreferencesEnabledKey];
     }

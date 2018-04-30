@@ -1,5 +1,4 @@
-#import "FSSwitchDataSource.h"
-#import "FSSwitchPanel.h"
+#import <Flipswitch/Flipswitch.h>
 #import <notify.h>
 
 @interface VLTFlipswitchSwitch : NSObject <FSSwitchDataSource>
@@ -8,19 +7,19 @@
 @implementation VLTFlipswitchSwitch
 
 - (FSSwitchState)stateForSwitchIdentifier:(NSString *)switchIdentifier {
-		Boolean keyExistsAndHasValidFormat;
-		BOOL enabled = CFPreferencesGetAppBooleanValue(CFSTR("Enabled"), CFSTR("com.shade.vultus.settings"), &keyExistsAndHasValidFormat);
+	Boolean keyExistsAndHasValidFormat;
+	BOOL enabled = CFPreferencesGetAppBooleanValue(CFSTR("Enabled"), CFSTR("com.shade.vultus"), &keyExistsAndHasValidFormat);
 
-		return enabled ? FSSwitchStateOn : FSSwitchStateOff;
+	return enabled ? FSSwitchStateOn : FSSwitchStateOff;
 }
 
 - (void)applyState:(FSSwitchState)newState forSwitchIdentifier:(NSString *)switchIdentifier {
-		if (newState == FSSwitchStateIndeterminate) {
-				return;
-		}
+	if (newState == FSSwitchStateIndeterminate) {
+		return;
+	}
 
-		CFPreferencesSetAppValue(CFSTR("Enabled"), (CFPropertyListRef)(newState == FSSwitchStateOn ? @YES : @NO), CFSTR("com.shade.vultus.settings"));
-		notify_post("com.shade.vultus.settings/ReloadPrefs");
+	CFPreferencesSetAppValue(CFSTR("Enabled"), (CFPropertyListRef)(newState == FSSwitchStateOn ? @YES : @NO), CFSTR("com.shade.vultus.settings"));
+	notify_post("com.shade.vultus/ReloadPrefs");
 }
 
 @end

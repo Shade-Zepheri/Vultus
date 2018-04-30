@@ -1,6 +1,6 @@
-#import <Vultus/VLTFaceRecognizerDelegateProtocol.h>
+#import <Vultus/VLTFaceRecognizerObserver.h>
 
-@interface VLTSpringBoardListener : NSObject <VLTFaceRecognizerDelegate>
+@interface VLTSpringBoardListener : NSObject <VLTFaceRecognizerObserver>
 
 - (void)faceRecognized:(NSString *)recognized confidence:(NSInteger)confidence;
 - (void)faceRejected;
