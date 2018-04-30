@@ -1,15 +1,11 @@
 #import "VLTAlertItem.h"
 
-%subclass VLTAlertItem : SBAlertItem
-%property (copy, nonatomic) NSString *title;
-%property (copy, nonatomic) NSString *message;
+@implementation VLTAlertItem
 
-%new
 + (instancetype)alertItemWithTitle:(NSString *)title andMessage:(NSString *)message {
     return [[self alloc] initWithTitle:title andMessage:message];
 }
 
-%new
 - (instancetype)initWithTitle:(NSString *)title andMessage:(NSString *)message {
     self = [self init];
     if (self) {
@@ -32,6 +28,7 @@
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [self deactivateForButton];
     }];
+
     [alertController addAction:action];
     alertController.preferredAction = action;
 }
@@ -40,4 +37,4 @@
     return YES;
 }
 
-%end
+@end
